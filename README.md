@@ -28,9 +28,16 @@ Entonces, ¿qué ocurre durante el intervalo entre cada pico R? Este tiempo repr
 - [APLICACIONES EN BIOMÉDICA](#aplicaciones)
 
 
-## Marco 
+## Marco teórico
 ---
-En este trabajo, se propuso abordar el desafiante problema de la 'fiesta de cóctel'. Simulando un escenario real, se configuró un arreglo de múltiples micrófonos para capturar simultáneamente las señales de varias fuentes sonoras. Al igual que en una reunión social, las grabaciones resultantes fueron una mezcla compleja de voces superpuestas, representando el típico desafío de aislar una señal de interés en un entorno acústicamente ruidoso. El objetivo principal fue desarrollar y evaluar técnicas de procesamiento de señales para abordar este problema, explorando algoritmos de separación de fuentes que permitieran aislar la voz de una persona específica a partir de una mezcla de múltiples hablantes. A través de este experimento, se buscó comprender los desafíos inherentes a la separación de fuentes y evaluar la eficacia de diferentes enfoques para resolver el problema de la 'fiesta de cóctel'.
+
+### Sistema nervioso autónomo
+
+El sistema nervioso autónomo es la parte del sistema nervioso que se encarga de controlar de manera automática las funciones involuntarias del cuerpo. Entre las características que este sistema regula se encuentra el ritmo cardíaco. Este control está presente en todas las situaciones a las que las personas se enfrentan, sin embargo, no todas las respuestas son iguales. Por esta razón, se divide en dos: sistema simpático y parasimpático.
+
+El sistema simpático se activa en situaciones de peligro o estrés, preparando al cuerpo para la acción ("respuesta de lucha o huida"). Uno de sus principales efectos es aumentar la frecuencia cardíaca al liberar noradrenalina. Al latir más rápido el corazón, aumenta el flujo sanguíneo y el suministro de oxígeno a los órganos. Esto se refleja en un acortamiento del intervalo R-R, debido al aumento de la frecuencia cardíaca.
+
+Por otro lado, el sistema parasimpático se activa en situaciones de relajación y descanso, favoreciendo la conservación de energía. Cuando se activa, disminuye la frecuencia de impulsos eléctricos del nodo sinusal (marcapasos cardíaco), lo que reduce el trabajo del corazón. Esto se refleja en un alargamiento del intervalo R-R, ya que la frecuencia cardíaca disminuye.
 
 
 ## Objetivo

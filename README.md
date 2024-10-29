@@ -4,16 +4,16 @@
 <p align="center"> Problema:  Identificación de picos R, e intervalo entre ellos.</p>
 <br />
 <div align="center">
- <img src="FIESTA.jpg" alt="Fiesta" width="300" height="300">
+ <img src="ECG.png" alt="ECG" width="300" height="300">
 </div>
 
 <br />
-En un evento tipo coctel, se instalaron varios micrófonos para escuchar lo que
-las personas estaban hablando; una vez terminó la fiesta, se solicitó a los
-ingenieros que entregaran el audio de la voz de uno de los participantes.
-Los ingenieros analizaron las señales grabadas por los micrófonos eran mezclas
-de señales que provenían de diferentes fuentes (personas) para todos los casos
-y se encontraron con el problema de aislar la voz de interés.
+
+La señal ECG es aquella que mide la actividad eléctrica del corazón, en cada latido. Es capaz de medir los cambios de voltaje gracias al flujo de iones que sucede durante la contracción y relajación. Asimismo, cada parte de la señal ECG tiene un significado asociado con el ciclo cardíaco.
+
+Teniendo en cuenta que nos interesa el significado del pico R, se define como la representación de la despolarización máxima de los ventrículos; siendo esta importante para enviar la sangre al resto del cuerpo.
+
+Entonces, ¿qué ocurre durante el intervalo entre cada pico R? Este tiempo representa el periodo completo de un latido cardíaco, a partir del cual se puede calcular la frecuencia cardíaca (un importante indicador de la salud del paciente), y también evaluar su variabilidad (HRV). Pero, ¿para qué? Se profundizará más sobre esto en el marco teórico.
 
 
 

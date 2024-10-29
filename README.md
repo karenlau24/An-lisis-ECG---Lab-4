@@ -1,7 +1,7 @@
 -*
-<h1 align="center">AISLAMIENTO DE VOZ ESPECIFICA EN AUDIO MIXTO</h1>
+<h1 align="center">ANÁLISIS DE SEÑAL ELECTROMIOGRÁFICA</h1>
 
-<p align="center"> Problema:  Fiesta de cóctel</p>
+<p align="center"> Problema:  Identificación de picos R, e intervalo entre ellos.</p>
 <br />
 <div align="center">
  <img src="FIESTA.jpg" alt="Fiesta" width="300" height="300">

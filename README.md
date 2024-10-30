@@ -4,7 +4,7 @@
 <p align="center"> Problema:  Identificación de picos R, e intervalo entre ellos.</p>
 <br />
 <div align="center">
- <img src="ECG.png" alt="ECG" width="600" height="600">
+ <img src="ECG.png" alt="ECG" width="300" height="300">
 </div>
 
 <br />
@@ -40,7 +40,7 @@ El sistema simpático se activa en situaciones de peligro o estrés, preparando 
 Por otro lado, el sistema parasimpático se activa en situaciones de relajación y descanso, favoreciendo la conservación de energía. Cuando se activa, disminuye la frecuencia de impulsos eléctricos del nodo sinusal (marcapasos cardíaco), lo que reduce el trabajo del corazón. Esto se refleja en un alargamiento del intervalo R-R, ya que la frecuencia cardíaca disminuye.
 
 <div align="center">
- <img src="SNA.png" alt="SNA" width="300" height="300">
+ <img src="SNA.png" alt="SNA" width="600" height="600">
 </div>
 
 ### ¿Qué mide la HRV?

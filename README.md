@@ -170,12 +170,49 @@ voltaje = datos[:, 1]  #Voltaje
 fs = 100 #Frecuencia de muestreo (Hz)
 ```
 
-### Paso 3: Aplicar el ICA
+### 3. Filtrado 
+
+ En esta sección es importante aclarar que, aunque la señal ya ha sido filtrada por los filtros integrados en el sensor AD8232, aún presenta un nivel de ruido considerable. Por lo tanto, se aplicaron tres filtros adicionales para obtener una señal más clara: un pasabanda, un pasa-bajas y un filtro de mediana.
+
+El filtro pasabanda se diseñó para una banda de frecuencia entre 1 Hz y 40 Hz, valores respaldados por la literatura especializada. El objetivo es permitir el paso únicamente de las frecuencias correspondientes a la señal ECG. Para su implementación, se calculó la frecuencia de Nyquist, que es la mitad de la frecuencia de muestreo (50 Hz). Se utilizó una función de diseño Butterworth, ya que este tipo de filtros ofrecen una respuesta plana en la banda pasante, lo que garantiza una atenuación uniforme de las frecuencias fuera de esta banda. En el código, se especificó explícitamente que se deseaba un filtro pasabanda.
+
+> Filtro Pasabanda
+
+
+El filtro pasabanda se diseñó para una banda de frecuencia entre 1 Hz y 40 Hz, valores respaldados por la literatura especializada. El objetivo es permitir el paso únicamente de las frecuencias correspondientes a la señal ECG. Para su implementación, se calculó la frecuencia de Nyquist, que es la mitad de la frecuencia de muestreo (50 Hz). Se utilizó una función de diseño Butterworth, ya que este tipo de filtros ofrecen una respuesta plana en la banda pasante, lo que garantiza una atenuación uniforme de las frecuencias fuera de esta banda. En el código, se especificó explícitamente que se deseaba un filtro pasabanda.
+
 
 ```
-ica = FastICA(n_components=3)
-sources = ica.fit_transform(audio_mezclado.reshape(-1, 1))
+lowcut = 1.0
+highcut = 40.0
+nyq = 0.5 * fs
+low = lowcut / nyq
+high = highcut / nyq
+
+b, a = signal.butter(4, [low, high], btype='band')
+ecg_filtered = signal.filtfilt(b, a, voltaje)
 ```
+
+> Filtro Pasabaja
+
+A pesar de aplicar el filtro pasabanda, la señal aún presentaba ruido. Por esta razón, se decidió aplicar un filtro pasa-bajas con una frecuencia de corte de 40 Hz. El objetivo de este filtro era eliminar las componentes de frecuencia superiores a 40 Hz, refinando aún más el rango de frecuencias de interés. La implementación del filtro pasa-bajas fue similar a la del pasabanda, especificando únicamente que se deseaba un filtro de tipo pasa-bajas.
+
+
+```
+cutoff_low = 40.0
+low = cutoff_low / nyq
+b_low, a_low = signal.butter(4, low, btype='low')
+ecg_filtered = signal.filtfilt(b_low, a_low, ecg_filtered)
+```
+
+> Filtro de mediana 
+
+Posteriormente, para preservar los detalles importantes de la señal y suavizar los bordes de manera efectiva, se optó por aplicar un filtro de mediana. Este tipo de filtro no lineal es especialmente útil para suavizar señales sin perder los bordes o la nitidez, lo cual es fundamental para la detección precisa de los picos R. Además, su implementación es sencilla y su cálculo es computacionalmente eficiente. Matemáticamente, el filtro de mediana divide la señal en ventanas deslizantes y, para cada ventana, calcula la mediana de los valores. A continuación, el valor central de cada ventana se reemplaza por la mediana calculada, lo que tiene el efecto de suavizar la señal preservando sus características principales. Esto lo hace guiado por el tamaño del "Kernel", que no es más que el número de datos que se utilizarán por ventana, en este caso, se eligieron 5 datos; siendo esto efectivo por su tamaño medio, asegurando el suavizado de la señal, pero también, la preservación de datos importantes.
+
+```
+ecg_filtered = signal.medfilt(ecg_filtered, kernel_size=5)
+```
+
 ### Paso 4: Seleccionar la fuente (voz) que se desea filtrar
 
 ```

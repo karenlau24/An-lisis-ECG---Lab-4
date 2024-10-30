@@ -252,7 +252,7 @@ Los resultados obtenidos fueron los siguientes:
 Para realizar un análisis de frecuencias a lo largo del tiempo, considerando que nuestra señal es continua, se optó por utilizar una transformada wavelet continua. En particular, se seleccionó la wavelet de Morlet, implementada en la biblioteca PyWavelets (pywt). Inicialmente, se definió un rango de escalas de 1 a 64, con incrementos de 1.0; así, se logra un barrido de frecuencias que va desde los 0.8Hz a los 50Hz, rango en el cual se encuentra la información de interés. Las escalas están directamente relacionadas con la frecuencia de la señal: a mayor escala, menor frecuencia y viceversa. Esta elección de escalas se basa en la relación entre la escala y la frecuencia, que es característica de cada tipo de wavelet, que es la siguiente: 
 
 <div align="center">
- <img src="Escalas.png" alt="Escalas" width="150" height="50">
+ <img src="Escalas.png" alt="Escalas" width="100" height="50">
 </div>
 
 Por lo tanto, se especifica en el código que la función wavelet a utilizar es **Morlet**, con la sintaxis 'cmor1.5-1.0'. Estos parámetros ajustan el ancho de banda y la frecuencia central de la wavelet. Se seleccionaron los valores 1.5 y 1.0, respectivamente, ya que permiten capturar tanto componentes de frecuencia bajas (cambios lentos) como altas (cambios rápidos). Este rango de valores es comúnmente utilizado en el análisis de señales ECG. Un ancho de banda adecuado garantiza una buena resolución temporal y frecuencial, mientras que una frecuencia central adecuada permite centrarse en las bandas de frecuencia de interés en la señal ECG.
@@ -270,40 +270,35 @@ Al gráficar el espectrograma con los resultados obtenidos luego de aplicar la t
 
 Al observar la imagen, se puede apreciar que la mayor parte de la energía de la señal se concentra alrededor de los 40 Hz, lo cual es coherente con lo esperado en una señal ECG. Sin embargo, también se detecta una presencia de energía en frecuencias superiores a 40 Hz, lo que podría atribuirse a la presencia de ruido o artefactos no filtrados completamente. No obstante, la concentración principal de energía se mantiene en torno a los 40 Hz. Además, se identifican patrones repetitivos que corresponden a cada latido cardíaco, lo que indica una buena calidad de la señal.
 
-### Paso 7: Análisis temporal
+### 7: Potencia en bandas de frecuencia 
+
+La señal ECG presenta un amplio espectro de frecuencias. Para analizarla en detalle, se suele dividir en bandas: una de baja frecuencia y otra de alta frecuencia. Cada banda aporta información sobre diferentes aspectos de la función cardíaca. La banda de alta frecuencia se relaciona típicamente con la actividad respiratoria y la influencia del sistema nervioso parasimpático, mientras que la banda de baja frecuencia se asocia con la variabilidad de la frecuencia cardíaca, la regulación cardiovascular y la interacción entre los sistemas nervioso simpático y parasimpático. En el código, se establecieron límites específicos para estas bandas: de 0.5 Hz a 2.0 Hz para la banda baja y de 2.0 Hz a 5.0 Hz para la banda alta. Estos valores fueron determinados visualizando las frecuencias asociadas a cada escala de la transformada wavelet. 
 
 ```
-timepim = np.arange(0, len(pim)) / Fs1
-timepum = np.arange(0, len(pum)) / Fs2
-timepam= np.arange(0, len(pam)) / Fs3
+freqs = fs / (2 * scales) 
+print("Frecuencias asociadas a las escalas:", freqs)
+lf_band = np.logical_and(freqs >= 0.5, freqs <= 2.0)  
+hf_band = np.logical_and(freqs >= 2.0, freqs <= 5.0)
+lf_power = np.trapz(np.abs(coefficients[lf_band, :]), axis=0)
+hf_power = np.trapz(np.abs(coefficients[hf_band, :]), axis=0)
+lf_hf_ratio = np.mean(lf_power) / np.mean(hf_power)
 
-timepim1 = np.arange(0, len(pim1)) / Fr1
-timepum2 = np.arange(0, len(pum2)) / Fr2
-timepam3 = np.arange(0, len(pam3)) / Fr3
-
-plt.figure(figsize=(10, 6))
-
-plt.plot(timepim, pim, label='Voces Toma 1', color='pink')
-plt.plot(timepum, pum, label='Voces Toma 2', color='red')
-plt.plot(timepam, pam, label='Voces Toma 3', color='green')
-
-plt.plot(timepim1, pim1, label='Ruido Toma 1', color='blue')
-plt.plot(timepum2, pum2, label='Ruido Toma 2', color='brown')
-plt.plot(timepam3, pam3, label='Ruido Toma 3', color='white')
-
-plt.title("Análisis Temporal de Todas las Señales")
-plt.xlabel("Tiempo [s]")
-plt.ylabel("Amplitud [mV]")
-plt.legend()
-plt.show()
 ```
-La gráfica presentada es la siguiente: 
+Al haber realizado el cálculo y obtenido los resultados, se muestra que: 
 
-<br />
+- Potencia promedio en banda LF: 373.2756
+- Potencia promedio en banda HF: 211.5370
+- Relación LF/HF: 1.7646
+
+Estos resultados nos indican diversos factores. Por ejemplo, un valor elevado de potencia en la banda de baja frecuencia sugiere un aumento en la actividad del sistema nervioso simpático, lo que se traduce en un incremento del flujo sanguíneo y de la frecuencia cardíaca. Este hallazgo es coherente con el protocolo experimental, ya que el sujeto fue sometido a preguntas incómodas durante la adquisición de los datos, lo cual pudo haber generado una respuesta de estrés. Por otro lado, la baja potencia en la banda de alta frecuencia indica que, aunque el organismo intentó regular estos cambios fisiológicos mediante la activación del sistema nervioso parasimpático, esta respuesta no fue suficiente para contrarrestar completamente los efectos de la actividad simpática. Lo anterior se confirma con el resultado de la relación LF/HF, observando que se obtuvo un resultado mayor a 1, se sabe que existe predominación del sistema simpático sobre el parasimpático. 
+
+Para finalizar, al gráficar el comportamiento de las frecuencias en el tiempo se obtiene lo siguiente: 
+
 <div align="center">
- <img src="TEMPORAL.png" alt="Temporal" width="600" height="300">
+ <img src="Potencias.png" alt="Potencias" width="400" height="400">
 </div>
 
+En esta gráfica se observa que los valores de potencia en la banda de baja frecuencia (LF) superan consistentemente a los de la banda de alta frecuencia (HF), lo cual confirma los hallazgos anteriores. Se identifican picos aislados, alejados de la tendencia general de los datos, que podrían corresponder a momentos en los que el sujeto experimentó emociones intensas (como risa o nerviosismo) y sus movimientos generaron artefactos en la señal. Sin embargo, a pesar de estos eventos transitorios, la dominancia de la potencia en la banda de baja frecuencia se mantiene.
 
 ### Paso 8: Análisis espectral
 

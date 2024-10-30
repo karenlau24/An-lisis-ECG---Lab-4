@@ -141,11 +141,11 @@ Para la toma de datos, en primer lugar, se obtuvo el consentimiento informado de
 
 Se utilizaron diversas librerias, tales como: 
 
--Numpy: Computación numerica, se utilizó para el procesamiento de matrices, arreglos y funciones matematicas. 
--Matplotlib: Graficacion de las señales. 
--Spicy.signal: Procesamiento de las señales. 
--Pywt: Utilizada para llevar a cabo la transformada Wavelet. 
--Panda: Se utilizó para mostrar de manera ordenada los datos en el panel de Spider, en forma de tablas, facilitando su comprensión. 
+- Numpy: Computación numerica, se utilizó para el procesamiento de matrices, arreglos y funciones matematicas. 
+- Matplotlib: Graficacion de las señales. 
+- Spicy.signal: Procesamiento de las señales. 
+- Pywt: Utilizada para llevar a cabo la transformada Wavelet. 
+- Panda: Se utilizó para mostrar de manera ordenada los datos en el panel de Spider, en forma de tablas, facilitando su comprensión. 
 
 ```
 import numpy as np

@@ -82,13 +82,9 @@ Es la señal que se quiere someter a la transformada Wavelet.
 
 > ψ((t-b)/a)
 
-Es la función Wavelet madre (es decir, la wavelet sin ninguna modificación), pero, escalada en **a**, desplazada en **b** y evaluada en el tiempo **t**. 
+Es la función Wavelet madre (es decir, la Wavelet sin ninguna modificación), pero, escalada en **a**, desplazada en **b** y evaluada en el tiempo **t**. 
 
-
-
-Representa el coeficiente de la transformada Wavelet para una escala **a** y una traslación **b**, cabe recordar que la escala se relaciona con el cambio en la frecuencia, y la traslación con el movimiento en el eje x.
-
-
+Teniendo en cuenta su definción, ahora podemos 
 
 
 ## Objetivo

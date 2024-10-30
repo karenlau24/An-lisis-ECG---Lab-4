@@ -48,7 +48,7 @@ Por otro lado, el sistema parasimpático se activa en situaciones de relajación
 La HRV (Heart Rate Variability), o variabilidad de la frecuencia cardíaca, es una medida de los cambios en el tiempo que ocurren entre los latidos del corazón, a esto se le llama frecuencia. Anteriormente, se mencionó cómo el cuerpo se adapta a diferentes situaciones, lo que demuestra su adaptabilidad. Al analizar la HRV, es importante considerar las diferentes bandas de frecuencia, ya que cada una proporciona información sobre características específicas de la señal ECG.
 
 <div align="center">
- <img src="HRV.jpeg" alt="HRV" width="600" height="600">
+ <img src="HRV.jpg" alt="HRV" width="300" height="150">
 </div>
 
 ### Bandas de frecuencia que mide la HRV

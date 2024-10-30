@@ -300,108 +300,12 @@ Para finalizar, al gráficar el comportamiento de las frecuencias en el tiempo s
 
 En esta gráfica se observa que los valores de potencia en la banda de baja frecuencia (LF) superan consistentemente a los de la banda de alta frecuencia (HF), lo cual confirma los hallazgos anteriores. Se identifican picos aislados, alejados de la tendencia general de los datos, que podrían corresponder a momentos en los que el sujeto experimentó emociones intensas (como risa o nerviosismo) y sus movimientos generaron artefactos en la señal. Sin embargo, a pesar de estos eventos transitorios, la dominancia de la potencia en la banda de baja frecuencia se mantiene.
 
-### Paso 8: Análisis espectral
-
-```
-N1 = len(timepim)
-T1 = 1.0 / Fs1
-
-N2 = len(timepum)
-T2 = 1.0 / Fs2
-
-N3 = len(timepam)
-T3 = 1.0 / Fs3
-
-Nr1 = len(timepim1)
-Tr1 = 1.0 / Fr1
-
-Nr2 = len(timepum2)
-Tr2 = 1.0 / Fr2
-
-Nr3 = len(timepam3)
-Tr3 = 1.0 / Fr3
-
-yf_pim= fft(pim)
-yf_pum = fft(pum)
-yf_pam = fft(pam)
-yf_pim1 = fft(pim1)
-yf_pum2 = fft(pum2)
-yf_pam3 = fft(pam3)
-
-xf_pim = fftfreq(N1, T1)[:N1//2]
-xf_pum = fftfreq(N2, T2)[:N2//2]
-xf_pam = fftfreq(N3, T3)[:N3//2]
-xf_pim1 = fftfreq(Nr1, Tr1)[:Nr1//2]
-xf_pum2 = fftfreq(Nr2, Tr2)[:Nr2//2]
-xf_pam3 = fftfreq(Nr3, Tr3)[:Nr3//2]
-
-plt.figure(figsize=(10, 6))
-
-plt.plot(xf_pim, 2.0/N1 * np.abs(yf_pim[:N1//2]), label='Voces Toma 1', color='blue')
-plt.plot(xf_pum, 2.0/N2 * np.abs(yf_pum[:N2//2]), label='Voces Toma 2', color='green')
-plt.plot(xf_pam, 2.0/N3 * np.abs(yf_pam[:N3//2]), label='Voces Toma 3', color='red')
-
-plt.plot(xf_pim1, 2.0/Nr1 * np.abs(yf_pim1[:Nr1//2]), label='Ruido Toma 1', color='orange')
-plt.plot(xf_pum2, 2.0/Nr2 * np.abs(yf_pum2[:Nr2//2]), label='Ruido Toma 2', color='yellow')
-plt.plot(xf_pam3, 2.0/Nr3 * np.abs(yf_pam3[:Nr3//2]), label='Ruido Toma 3', color='purple')
-
-plt.title("Análisis Espectral usando FFT de Todas las Señales")
-plt.xlabel("Frecuencia [Hz]")
-plt.ylabel("Amplitud [dB]")
-plt.legend()
-plt.show()
-```
-La gráfica realizada es la siguiente: 
-
-<br />
-<div align="center">
- <img src="ESPECTRAL.png" alt="Fiesta" width="600" height="300">
-</div>
-
-### Paso 7: Visualización de la voz filtrada
-
-```
-plt.figure(figsize=(12, 6))
-plt.plot(voz_filtrada_mejorada, color='violet')
-plt.legend()
-plt.title("Voz Filtrada usando ICA & Filtro Pasa Banda")
-```
-
-La gráfica de la voz filtrada es la siguiente: 
-
-<br />
-<div align="center">
- <img src="VOZ.png" alt="Fiesta" width="600" height="300">
-</div>
-
-Audio con la voz filtrada: [SoundCloud audio player](https://on.soundcloud.com/NhbaJE7aAdKrAETA7)
-
-
-
  	
-## Resultados
----
+## Conclusiones
 
-> SNR
-
-Al momento de realizar el cálculo de las señales con sus respectivos ruidos, los resultados obtenidos fueron los siguientes: 
-
-```
-El SNR entre la señal de audio 1 y el ruido 1 es: 32.80 dB
-El SNR entre la señal de audio 2 y el ruido 2 es: 44.29 dB
-El SNR entre la señal de audio 3 y el ruido 3 es: 27.14 dB
-El SNR entre Vocecita y el ruido 1 es: 33.48 dB
-El SNR entre Vocecita y el ruido 2 es: 48.81 dB
-El SNR entre Vocecita y el ruido 3 es: 31.89 dB
-```
-Siendo Vocecita la mezcla de las tres señales adquiridas. 
-
-El análisis de los valores de SNR revela que tanto el filtrado pasabanda como el Análisis de Componentes Independientes (ICA) han contribuido a mejorar sustancialmente la calidad de la señal de audio. El filtrado ha eliminado las frecuencias no deseadas, mientras que ICA ha permitido separar de manera efectiva las fuentes de audio mezcladas. La señal resultante presenta una relación señal-ruido significativamente mayor, lo que indica una reducción efectiva del ruido y una mayor claridad en la señal de voz. Así mismo, el aumento del SNR después del procesamiento indica que la señal de voz filtrada es menos susceptible a interferencias y, por lo tanto, más adecuada para aplicaciones posteriores, como el reconocimiento de voz o la compresión de audio. Los resultados obtenidos demuestran la eficacia de las técnicas empleadas para mejorar la calidad de la señal.
+Al finalizar, se pueden distinguir algunas diferecias al momento de analizar la señal en el dominio del tiempo y del dominio de tiempo-frecuencia. En el dominio del tiempo vemos cómo se comporta la amplitud de la señal ECG a lo largo del tiempo, aquí es donde se logran identificar los picos, las ondas, y el comportamiento en general en voltaje de la señal. Por otro lado, al descomponer la señal en sus componentes de frecuencia y escala (proceso que se puede realizar gracias a la transformada Wavelet), se puede observar por ejemplo, cómo se distribuye la energia en distintas frecuencias a lo largo del tiempo. Así mismo, si se indaga en el tema de las transformadas Wavelet, se puede intuir que dependiendo de la transformada que se use, va a cambiar la información que se obtenga, y, para que el proceso sea uniforme, se escoge una transformada que sea lo suficientemente parecida a nuestra señal original, así mismo, debe ser del mismo tipo; es decir, si nuestra señal original es continua, la Wavelet debe ser continua también. 
 
 
-> Análisis temporal y espectral
-
-El análisis temporal de la señal indica la variación de la misma a lo largo del tiempo, entonces, permite identificar la presencia de ruido y la observación del patrón que siguen las voces, esto teniendo en cuenta que en todas las grabaciones, las personas están diciendo las mismas cosas. Por otro lado, en el análisis espectral se pueden identificar las frecuencias predominantes de la señal.
 
 ### Aplicaciones
 

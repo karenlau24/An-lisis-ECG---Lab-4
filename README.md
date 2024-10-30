@@ -213,10 +213,13 @@ Posteriormente, para preservar los detalles importantes de la señal y suavizar 
 ecg_filtered = signal.medfilt(ecg_filtered, kernel_size=5)
 ```
 
-### Paso 4: Seleccionar la fuente (voz) que se desea filtrar
+### 4. Detección de picos R
+
+Una vez obtenida la señal filtrada, se procede a detectar los picos R utilizando la función **find_peaks** de la biblioteca **scipy.signal**. Esta función requiere principalmente dos parámetros para identificar los máximos locales: una altura mínima y una distancia mínima entre picos. La altura mínima se establece como un múltiplo de la media de la señal, en este caso, 1.5 veces la media, con el objetivo de detectar solo los picos más prominentes. Por otro lado, considerando que el intervalo promedio entre picos R-R en un adulto sano es de aproximadamente 0.6 segundos, se utiliza este valor como distancia mínima entre picos, asegurando así que se identifiquen correctamente los complejos QRS.
 
 ```
-voz_filtrada = sources[:, 0]
+peaks, _ = signal.find_peaks(ecg_filtered, height=np.mean(ecg_filtered) * 1.5, distance=fs * 0.6)
+rpeaks_times = peaks / fs  
 ```
 
 ### Paso 5: Aplicar filtro pasabanda para mejorar la señal 

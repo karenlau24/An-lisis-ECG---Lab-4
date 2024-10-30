@@ -82,7 +82,7 @@ Ruido que grabó el micrófono 2: [SoundCloud audio player](https://on.soundclou
 
 <br />
 <div align="center">
- <img src="MONTAJE.jpeg" alt="Montaje" width="250" height="250">
+ <img src="MONTAJE.jpeg" alt="Montaje" width="100" height="250">
 </div>
 
 

@@ -47,6 +47,10 @@ Por otro lado, el sistema parasimpático se activa en situaciones de relajación
 
 La HRV (Heart Rate Variability), o variabilidad de la frecuencia cardíaca, es una medida de los cambios en el tiempo que ocurren entre los latidos del corazón, a esto se le llama frecuencia. Anteriormente, se mencionó cómo el cuerpo se adapta a diferentes situaciones, lo que demuestra su adaptabilidad. Al analizar la HRV, es importante considerar las diferentes bandas de frecuencia, ya que cada una proporciona información sobre características específicas de la señal ECG.
 
+<div align="center">
+ <img src="HRV.jpeg" alt="HRV" width="600" height="600">
+</div>
+
 ### Bandas de frecuencia que mide la HRV
 
 Habiendo mencionado anteriormente que las frecuencias medidas por la HRV son equivalentes a las 'velocidades' a las que ocurren las variaciones de los intervalos R-R, es importante aclarar que existen dos bandas de frecuencia principales: baja frecuencia y alta frecuencia.
@@ -84,7 +88,7 @@ Es la señal que se quiere someter a la transformada Wavelet.
 
 Es la función Wavelet madre (es decir, la Wavelet sin ninguna modificación), pero, escalada en **a**, desplazada en **b** y evaluada en el tiempo **t**. 
 
-Teniendo en cuenta su definción, ahora podemos 
+Teniendo en cuenta su definición, ahora podemos ver cuáles aplicaciones tiene, y es que, al ser tan poderosa, se usa en campos que van desde la economía hasta la ingeniería. Por ejemplo, en el ámbito de las finanzas, se puede utilizar para analizar la evolución de series temporales financieras en distintas escalas de tiempo, como por ejemplo, las tasas de interés. Se puede aplicar para captar y analizar patrones, lo cual permite una comprensión profunda de las situaciones que pueden afectar al comportamiento económico que se esté considerando. Por otro lado, en el área de la ingeniería, se puede ver aplicada en distintos ámbitos, como en el presente en este laboratorio, de análisis de señales biológicas, o, por ejemplo, en el análisis de imágenes. En el análisis de imágenes se puede utilizar para eliminar información redundante a distintas escalas presente en la imagen que se esté procesando, logrando mejorar la comprensión de la misma sin perder información relevante.
 
 
 ## Objetivo

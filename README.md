@@ -224,7 +224,7 @@ rpeaks_times = peaks / fs
 Luego de que la señal haya sido filtrada, y los picos R identificados, se ve de la siguiente manera:
 
 <div align="center">
- <img src="SEÑAL_1" alt="Señal" width="300" height="300">
+ <img src="SEÑAL_1.png" alt="Señal" width="300" height="300">
 </div>
 
 ### Paso 5: Aplicar filtro pasabanda para mejorar la señal 

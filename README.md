@@ -4,7 +4,7 @@
 <p align="center"> Problema:  Identificación de picos R, e intervalo entre ellos.</p>
 <br />
 <div align="center">
- <img src="ECG.png" alt="ECG" width="300" height="300">
+ <img src="ECG.png" alt="ECG" width="400" height="400">
 </div>
 
 <br />

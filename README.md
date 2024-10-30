@@ -24,7 +24,7 @@ Entonces, ¿qué ocurre durante el intervalo entre cada pico R? Este tiempo repr
 - [OBJETIVO](#objetivo)
 - [MONTAJE](#montaje)
 - [PROCESAMIENTO DE LAS SEÑALES](#procesamiento)
-- [ANÁLISIS DE RESULTADOS](#resultados)
+- [RESULTADOS](#resultados)
 - [APLICACIONES EN BIOMÉDICA](#aplicaciones)
 
 

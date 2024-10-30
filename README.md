@@ -135,20 +135,24 @@ Para la toma de datos, en primer lugar, se obtuvo el consentimiento informado de
 
 
 
-## Procesamiento
+## Procesamiento de la señal ECG 
 ---
-### Paso 1: Leer las señales de audio
+### Cargar las librerias que serán utilizadas para procesar la señal 
+
+Se utilizaron diversas librerias, tales como: 
+
+-Numpy: Computación numerica, se utilizó para el procesamiento de matrices, arreglos y funciones matematicas. 
+-Matplotlib: Graficacion de las señales. 
+-Spicy.signal: Procesamiento de las señales. 
+-Pywt: Utilizada para llevar a cabo la transformada Wavelet. 
+-Panda: Se utilizó para mostrar de manera ordenada los datos en el panel de Spider, en forma de tablas, facilitando su comprensión. 
+
 ```
-import soundfile as sn
-
-...
-
-pim, Fs1 = sn.read('AUDIO_1.wav')
-pum, Fs2 = sn.read('AUDIO_2.wav')
-pam, Fs3 = sn.read('AUDIO_3.wav')
-pim1, Fr1 = sn.read('RUIDO_1.wav')
-pum2, Fr2 = sn.read('RUIDO_2.wav')
-pam3, Fr3 = sn.read('RUIDO_3.wav')
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.signal as signal
+import pywt
+import pandas as pd
 ```
 ### Paso 2: Mezclar las señales, para poder utilizar ICA (Análisis de componentes independientes)
 

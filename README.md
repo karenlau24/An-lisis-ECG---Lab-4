@@ -62,7 +62,7 @@ Entonces, ¿Cómo es posible medir el avance de dichas frecuencias?, para este o
 La transformada wavelet es una herramienta matemática que nos permite analizar cómo cambian las frecuencias a lo largo de una señal, descomponiéndola en 'escalas' de tiempo y frecuencia. Esto significa que la transformada puede proporcionarnos información sobre qué frecuencias están presentes y en qué momentos de la señal ocurren. Su definición matemática es la siguiente:
 
 <div align="center">
- <img src="WAVELET.png" alt="WAVELET" width="250" height="100">
+ <img src="WAVELET.png" alt="WAVELET" width="250" height="50">
 </div>
 
 ## Objetivo

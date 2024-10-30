@@ -229,34 +229,23 @@ Luego de que la señal haya sido filtrada, y los picos R identificados, se ve de
 
 ### 5. Cálculo de tiempo entre picos R-R
 
-Para poder saber cuánto dura cada intervalo R-R se hizo uso de la función **np.diff** de la libreria **numpy**. Sin embargo, para poder utilizarla fue necesario guardar los datos de tiempo de los picos R en un arreglo llamado **rpeaks_times**, los datos de tiempo están en segundos. La función np.diff calcula la diferencia entre dichos datos. Luego de tenerlos, se realiza un analisis estadistico de los mismos, es decir, se cálcula el promedio yu la desviación estandar del tiempo que duran los intervalos R-R, ¿Por qué es importante conocer este cálculo?, bueno, teniendo en cuenta que con base en los resultados obtenidos se puede realizar un analisis en cuanto a la salud del paciente, se puede hacer una mención a la posibilidad de calcular la frecuencia cardiaca de la persona, conociendo el tiempo promedio de duración de sus intervalos R-R, esto con la siguiente relación: 
+Para determinar la duración de cada intervalo R-R, se empleó la función **np.diff** de la biblioteca NumPy. Previamente, se almacenaron los instantes de tiempo correspondientes a los picos R en un arreglo denominado rpeaks_times, expresados en segundos. La función np.diff calcula la diferencia entre elementos consecutivos de este arreglo, obteniendo así la duración de cada intervalo R-R. Posteriormente, se realizó un análisis estadístico de estos intervalos, calculando el valor promedio y la desviación estándar. Este análisis es fundamental, ya que permite evaluar la variabilidad de la frecuencia cardíaca y obtener información relevante sobre la salud cardiovascular del paciente. Por ejemplo, conociendo el valor promedio del intervalo R-R, es posible calcular la frecuencia cardíaca promedio utilizando la siguiente relación:
 
 <div align="center">
  <img src="imagen_2024-10-30_145545047.png" alt="HR" width="150" height="50">
 </div>
 
 ```
-def butter_bandpass(lowcut, highcut, fs, order=5):
-    nyquist = 0.5 * fs
-    low = lowcut / nyquist
-    high = highcut / nyquist
-    b, a = butter(order, [low, high], btype='band')
-    return b, a
-
-def bandpass_filter(data, lowcut, highcut, fs, order=5):
-    b, a = butter_bandpass(lowcut, highcut, fs, order=order)
-    y = lfilter(b, a, data)
-    return y
-
-lowcut = 1500.0  # Frecuencia mínima en Hz
-highcut = 3000.0  # Frecuencia máxima en Hz
-
-voz_filtrada_mejorada = bandpass_filter(voz_filtrada_recortada, lowcut, highcut, Fs1)
-
-voz_filtrada_mejorada /= np.max(np.abs(voz_filtrada_mejorada))
-
-sn.write('Vocecita.wav', voz_filtrada_mejorada, Fs1)
+rr_intervals = np.diff(rpeaks_times)  
+mean_rr = np.mean(rr_intervals)  
+std_rr = np.std(rr_intervals)  
 ```
+
+Los resultados obtenidos fueron los siguientes: 
+
+- Promedio de intervalos R-R: 0.76 segundos.
+- Desviación estándar: 0.10 segundos.
+- Frecuencia cardiaca: aprox 0.79 bpm. 
 
 ### Paso 6: Calcular SNR 
 

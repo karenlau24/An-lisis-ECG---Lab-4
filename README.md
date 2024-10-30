@@ -247,29 +247,28 @@ Los resultados obtenidos fueron los siguientes:
 - Desviación estándar: 0.10 segundos.
 - Frecuencia cardiaca: aprox 0.79 bpm. 
 
-### Paso 6: Calcular SNR 
+### 6. Transformada Wavelet Continua 
+
+Para realizar un análisis de frecuencias a lo largo del tiempo, considerando que nuestra señal es continua, se optó por utilizar una transformada wavelet continua. En particular, se seleccionó la wavelet de Morlet, implementada en la biblioteca PyWavelets (pywt). Inicialmente, se definió un rango de escalas de 1 a 64, con incrementos de 1.0; así, se logra un barrido de frecuencias que va desde los 0.8Hz a los 50Hz, rango en el cual se encuentra la información de interés. Las escalas están directamente relacionadas con la frecuencia de la señal: a mayor escala, menor frecuencia y viceversa. Esta elección de escalas se basa en la relación entre la escala y la frecuencia, que es característica de cada tipo de wavelet, que es la siguiente: 
+
+<div align="center">
+ <img src="Escalas.png" alt="Escalas" width="150" height="50">
+</div>
+
+Por lo tanto, se especifica en el código que la función wavelet a utilizar es **Morlet**, con la sintaxis 'cmor1.5-1.0'. Estos parámetros ajustan el ancho de banda y la frecuencia central de la wavelet. Se seleccionaron los valores 1.5 y 1.0, respectivamente, ya que permiten capturar tanto componentes de frecuencia bajas (cambios lentos) como altas (cambios rápidos). Este rango de valores es comúnmente utilizado en el análisis de señales ECG. Un ancho de banda adecuado garantiza una buena resolución temporal y frecuencial, mientras que una frecuencia central adecuada permite centrarse en las bandas de frecuencia de interés en la señal ECG.
 
 ```
-def calcular_snr(signal, noise):
-    # Calcular la potencia de la señal
-    potencia_signal = np.mean(signal**2)
-    # Calcular la potencia del ruido
-    potencia_noise = np.mean(noise**2)
-    # Evitar división por cero
-    if potencia_noise == 0:
-        potencia_noise = np.finfo(float).eps
-    # Calcular SNR en decibelios
-    snr_db = 10 * np.log10(potencia_signal / potencia_noise)
-    return snr_db
-
-snr_pim = calcular_snr(pim, pim1)
-snr_pum = calcular_snr(pum, pum2)
-snr_pam = calcular_snr(pam, pam3)
-
-snr_pim1 = calcular_snr(voz_filtrada_mejorada, pim1)
-snr_pum2 = calcular_snr(voz_filtrada_mejorada, pum2)
-snr_pam3 = calcular_snr(voz_filtrada_mejorada, pam3)
+scales = np.arange(1.0, 64.0, 1.0)  
+wavelet = 'cmor1.5-1.0' 
 ```
+Al gráficar el espectrograma con los resultados obtenidos luego de aplicar la transformada, se obtiene lo siguiente: 
+
+
+<div align="center">
+ <img src="Espec.png" alt="Espec" width="400" height="400">
+</div>
+
+Al observar la imagen, se puede apreciar que la mayor parte de la energía de la señal se concentra alrededor de los 40 Hz, lo cual es coherente con lo esperado en una señal ECG. Sin embargo, también se detecta una presencia de energía en frecuencias superiores a 40 Hz, lo que podría atribuirse a la presencia de ruido o artefactos no filtrados completamente. No obstante, la concentración principal de energía se mantiene en torno a los 40 Hz. Además, se identifican patrones repetitivos que corresponden a cada latido cardíaco, lo que indica una buena calidad de la señal.
 
 ### Paso 7: Análisis temporal
 

@@ -221,6 +221,11 @@ Una vez obtenida la señal filtrada, se procede a detectar los picos R utilizand
 peaks, _ = signal.find_peaks(ecg_filtered, height=np.mean(ecg_filtered) * 1.5, distance=fs * 0.6)
 rpeaks_times = peaks / fs  
 ```
+Luego de que la señal haya sido filtrada, y los picos R identificados, se ve de la siguiente manera:
+
+<div align="center">
+ <img src="SEÑAL_1" alt="Señal" width="300" height="300">
+</div>
 
 ### Paso 5: Aplicar filtro pasabanda para mejorar la señal 
 

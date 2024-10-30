@@ -59,13 +59,18 @@ Entonces, ¿Cómo es posible medir el avance de dichas frecuencias?, para este o
 
 ### Transformada Wavelet
 
-La transformada wavelet es una herramienta matemática que nos permite analizar cómo cambian las frecuencias a lo largo de una señal, descomponiéndola en 'escalas' de tiempo y frecuencia. Esto significa que la transformada puede proporcionarnos información sobre qué frecuencias están presentes y en qué momentos de la señal ocurren. Su definición matemática es la siguiente:
+La transformada wavelet es una herramienta matemática que nos permite analizar cómo cambian las frecuencias a lo largo de una señal, descomponiéndola en 'escalas' de tiempo y frecuencia. Esto significa que la transformada puede proporcionarnos información sobre qué frecuencias están presentes y en qué momentos de la señal ocurren. Su definición matemática, teniendo en cuenta que se está aplicando una señal continua (es decir, se va a utilizar la Transformada Wavelet Continua) es la siguiente:
 
 <div align="center">
  <img src="WAVELET.png" alt="WAVELET" width="250" height="50">
 </div>
 
-Esta definición nos brinda dos datos de vital importancia para realizar la transformada 
+Esta definición nos brinda dos datos de vital importancia para realizar la transformada, siendo así, cada término significa lo siguiente: 
+
+> CWT(a,b)
+
+Representa el coeficiente de la transformada Wavelet para una escala **a** y una traslación **b**, cabe recordar que la escala se relaciona con el cambio en la frecuencia, y la traslación con el movimiento en el eje x.
+
 
 
 ## Objetivo

@@ -232,7 +232,7 @@ Luego de que la señal haya sido filtrada, y los picos R identificados, se ve de
 Para poder saber cuánto dura cada intervalo R-R se hizo uso de la función **np.diff** de la libreria **numpy**. Sin embargo, para poder utilizarla fue necesario guardar los datos de tiempo de los picos R en un arreglo llamado **rpeaks_times**, los datos de tiempo están en segundos. La función np.diff calcula la diferencia entre dichos datos. Luego de tenerlos, se realiza un analisis estadistico de los mismos, es decir, se cálcula el promedio yu la desviación estandar del tiempo que duran los intervalos R-R, ¿Por qué es importante conocer este cálculo?, bueno, teniendo en cuenta que con base en los resultados obtenidos se puede realizar un analisis en cuanto a la salud del paciente, se puede hacer una mención a la posibilidad de calcular la frecuencia cardiaca de la persona, conociendo el tiempo promedio de duración de sus intervalos R-R, esto con la siguiente relación: 
 
 <div align="center">
- <img src="HR.png" alt="HR" width="150" height="50">
+ <img src="imagen_2024-10-30_145545047.png" alt="HR" width="150" height="50">
 </div>
 
 ```

@@ -88,7 +88,46 @@ Es la señal que se quiere someter a la transformada Wavelet.
 
 Es la función Wavelet madre (es decir, la Wavelet sin ninguna modificación), pero, escalada en **a**, desplazada en **b** y evaluada en el tiempo **t**. 
 
-Teniendo en cuenta su definición, ahora podemos ver cuáles aplicaciones tiene, y es que, al ser tan poderosa, se usa en campos que van desde la economía hasta la ingeniería. Por ejemplo, en el ámbito de las finanzas, se puede utilizar para analizar la evolución de series temporales financieras en distintas escalas de tiempo, como por ejemplo, las tasas de interés. Se puede aplicar para captar y analizar patrones, lo cual permite una comprensión profunda de las situaciones que pueden afectar al comportamiento económico que se esté considerando. Por otro lado, en el área de la ingeniería, se puede ver aplicada en distintos ámbitos, como en el presente en este laboratorio, de análisis de señales biológicas, o, por ejemplo, en el análisis de imágenes. En el análisis de imágenes se puede utilizar para eliminar información redundante a distintas escalas presente en la imagen que se esté procesando, logrando mejorar la comprensión de la misma sin perder información relevante.
+Teniendo en cuenta su definición, ahora podemos ver cuáles aplicaciones tiene, y es que, al ser tan poderosa, se usa en campos que van desde la economía hasta la ingeniería. Por ejemplo, en el ámbito de las finanzas, se puede utilizar para analizar la evolución de series temporales financieras en distintas escalas de tiempo, como por ejemplo, las tasas de interés. Se puede aplicar para captar y analizar patrones, lo cual permite una comprensión profunda de las situaciones que pueden afectar al comportamiento económico que se esté considerando. Por otro lado, en el área de la ingeniería, se puede ver aplicada en distintos ámbitos, como en el presente en este laboratorio, de análisis de señales biológicas, o, por ejemplo, en el análisis de imágenes. En el análisis de imágenes se puede utilizar para eliminar información redundante a distintas escalas presente en la imagen que se esté procesando, logrando mejorar la comprensión de la misma sin perder información relevante. Pero, para aplicaciones tan diversas, ¿Siempre se usa la misma Wavelet?, la respuesta es: no. Existen distintos tipos de Wavelets. 
+
+### Tipos de Wavelet 
+
+Como se mencionó anteriormente, existen distintos tipos de wavelets, cada una con características especiales que las hacen aptas para diversas aplicaciones en diferentes áreas. A continuación, se mencionan las más importantes y la que se utilizó en este algoritmo. 
+
+> Wavelet de Haar
+
+Esta señal Wavelet es una muy simple, se basa en una función escalón, y es discontinua. Se puede utilizar para analizar imagenes, detectando estructuras bruscas en las señales que componen las mismas. Sin embargo, no es recomendada para utilizar en señales suaves ó demasiado complejas, por su condición de discontinuidad. 
+
+<div align="center">
+ <img src="Haar.png" alt="Haar" width="300" height="200">
+</div>
+
+> Wavelet Daubechies 
+
+Esta es una Wavelet suave y continua, se divide también en varios tipos, dependiendo de su orden y de su longitud. Se utiliza comunmente en procesamiento de imagenes y audio, puede detectar detalles finos.
+
+<div align="center">
+ <img src="Dau.png" alt="Dau" width="300" height="200">
+</div>
+
+> Wavelet de Morlet  
+
+Esta es una wavelet que se asemeja a señales sinusoidales, pero como si estas hubieran sido modificadas por una gaussiana. Permite obtener datos como la magnitud y la fase. Debido a su naturaleza, puede detectar estructuras periódicas en las señales, sin embargo, no es adecuada para analizar situaciones en las que los cambios ocurren en intervalos de tiempo muy cortos. Se utiliza comúnmente en el análisis de señales biológicas, específicamente en el análisis de EEG (electroencefalograma), el cual mide la actividad eléctrica del cerebro.
+
+<div align="center">
+ <img src="Morlet.png" alt="Morlet" width="300" height="200">
+</div>
+
+> Wavelet de Morlet  
+
+Esta es una wavelet que se asemeja a señales sinusoidales, pero como si estas hubieran sido modificadas por una gaussiana. Permite obtener datos como la magnitud y la fase. Debido a su naturaleza, puede detectar estructuras periódicas en las señales, sin embargo, no es adecuada para analizar situaciones en las que los cambios ocurren en intervalos de tiempo muy cortos. Se utiliza comúnmente en el análisis de señales biológicas, específicamente en el análisis de EEG (electroencefalograma), el cual mide la actividad eléctrica del cerebro.
+
+<div align="center">
+ <img src="Morlet.png" alt="Morlet" width="300" height="200">
+</div>
+
+
+
 
 
 ## Objetivo

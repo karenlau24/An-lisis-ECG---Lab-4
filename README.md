@@ -71,7 +71,20 @@ Esta definición nos brinda dos datos de vital importancia para realizar la tran
 
 Representa el coeficiente de la transformada Wavelet para una escala **a** y una traslación **b**, cabe recordar que la escala se relaciona con el cambio en la frecuencia, y la traslación con el movimiento en el eje x.
 
-> \frac{1}{\sqrt{a}}
+> 1/√a
+
+Es el factor de normalización encargado de que la energía de la señal Wavelet no cambie junto con la variación en la escala. 
+
+> f(t)
+
+Es la señal que se quiere someter a la transformada Wavelet.
+
+
+> ψ((t-b)/a)
+
+Es la función Wavelet madre (es decir, la wavelet sin ninguna modificación), pero, escalada en **a**, desplazada en **b** y evaluada en el tiempo **t**. 
+
+
 
 Representa el coeficiente de la transformada Wavelet para una escala **a** y una traslación **b**, cabe recordar que la escala se relaciona con el cambio en la frecuencia, y la traslación con el movimiento en el eje x.
 

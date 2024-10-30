@@ -71,6 +71,11 @@ Esta definición nos brinda dos datos de vital importancia para realizar la tran
 
 Representa el coeficiente de la transformada Wavelet para una escala **a** y una traslación **b**, cabe recordar que la escala se relaciona con el cambio en la frecuencia, y la traslación con el movimiento en el eje x.
 
+> \frac{1}{\sqrt{a}}
+
+Representa el coeficiente de la transformada Wavelet para una escala **a** y una traslación **b**, cabe recordar que la escala se relaciona con el cambio en la frecuencia, y la traslación con el movimiento en el eje x.
+
+
 
 
 ## Objetivo

@@ -112,7 +112,7 @@ Esta es una Wavelet suave y continua, se divide también en varios tipos, depend
 
 > Wavelet de Morlet  
 
-Esta es una wavelet que se asemeja a señales sinusoidales, pero con una forma similar a una campana de Gauss. Permite obtener datos como la magnitud y la fase. Debido a su naturaleza, es capaz de detectar estructuras periódicas en las señales. Por esta razón, fue seleccionada para analizar la señal ECG.
+Esta wavelet, que se asemeja a una señal sinusoidal pero con una forma similar a una campana de Gauss, permite obtener datos como la magnitud y la fase. Gracias a su naturaleza, es capaz de detectar estructuras periódicas en las señales. Por esta razón, se seleccionó para analizar la señal ECG.
 
 <div align="center">
  <img src="Morlet.png" alt="Morlet" width="300" height="200">
@@ -121,24 +121,13 @@ Esta es una wavelet que se asemeja a señales sinusoidales, pero con una forma s
 
 ## Objetivo
 ---
-En este trabajo, se propuso abordar el desafiante problema de la 'fiesta de cóctel'. Simulando un escenario real, se configuró un arreglo de múltiples micrófonos para capturar simultáneamente las señales de varias fuentes sonoras. Al igual que en una reunión social, las grabaciones resultantes fueron una mezcla compleja de voces superpuestas, representando el típico desafío de aislar una señal de interés en un entorno acústicamente ruidoso. El objetivo principal fue desarrollar y evaluar técnicas de procesamiento de señales para abordar este problema, explorando algoritmos de separación de fuentes que permitieran aislar la voz de una persona específica a partir de una mezcla de múltiples hablantes. A través de este experimento, se buscó comprender los desafíos inherentes a la separación de fuentes y evaluar la eficacia de diferentes enfoques para resolver el problema de la 'fiesta de cóctel'.
 
-
-
-
+El objetivo de este trabajo fue identificar los picos R de una señal ECG para, posteriormente, analizar la fluctuación temporal de los intervalos R-R en una señal de cinco minutos de duración. Esta información es fundamental para realizar un análisis de la frecuencia cardíaca y detectar posibles anomalías asociadas a enfermedades o síndromes. Para identificar las frecuencias relacionadas con estas fluctuaciones, se empleó la transformada wavelet de Morlet, lo que permitió generar un espectograma y visualizar gráficamente la evolución temporal de las frecuencias.
 
 ## Montaje
 ---
-Se implementó un montaje en el que se utilizaron tres micrófonos con una frecuencia de muestreo de 44 kHz, asegurada por la aplicación RecForge II. Las tres personas encargadas de emitir las voces se ubicaron en sillas a diferentes distancias respecto a los micrófonos, que estuvieron colocados en el mismo punto. Como primer paso, se realizó una grabación del ruido ambiente, que fue mínimo gracias a que el experimento se llevó a cabo en un cuarto insonorizado, cuyo objetivo es minimizar la reflexión del sonido. Después, cada persona recitó un trabalenguas, el cual fue captado por los micrófonos. Estos audios se guardaron y usaron como archivos .wav. 
 
-Audio que grabó el micrófono 2: [SoundCloud audio player](https://on.soundcloud.com/6zYvVz5bun4SVdD1A)
-Ruido que grabó el micrófono 2: [SoundCloud audio player](https://on.soundcloud.com/xyzhEwwts82rAUCS9)
-
-<br />
-<div align="center">
- <img src="MONTAJE.jpeg" alt="Montaje" width="100" height="250">
-</div>
-
+Para la toma de datos, primero fue importante realizar un consentimiento informado que el sujeto de prueba firmara autorizando el uso y exposición de los datos de su señal ECG. El consentimiento se encuentra cargado con el nombre de "CONSENTIMIENTO_SEÑALES".
 
 
 ## Procesamiento

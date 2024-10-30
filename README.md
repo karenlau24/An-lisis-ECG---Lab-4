@@ -130,7 +130,7 @@ El objetivo de este trabajo fue identificar los picos R de una señal ECG para, 
 Para la toma de datos, en primer lugar, se obtuvo el consentimiento informado del sujeto de prueba, quien autorizó por escrito el uso y divulgación de los datos de su señal ECG. El documento de consentimiento se encuentra disponible con el nombre "CONSENTIMIENTO_SEÑALES". A continuación, se conectó al sujeto a los electrodos del sensor AD8232 y, mediante comunicación serial entre la STM32 y Python, se adquirieron cinco minutos de datos de la señal ECG. Finalmente, estos datos fueron almacenados en un archivo .txt, el cual servirá como base para el posterior procesamiento y extracción de las características requeridas de la señal.
 
 <div align="center">
- <img src="MONTAJE_ECG.jpeg" alt="Montaje" width="300" height="200">
+ <img src="MONTAJE_ECG.jpeg" alt="Montaje" width="600" height="600">
 </div>
 
 

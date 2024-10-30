@@ -112,22 +112,11 @@ Esta es una Wavelet suave y continua, se divide también en varios tipos, depend
 
 > Wavelet de Morlet  
 
-Esta es una wavelet que se asemeja a señales sinusoidales, pero como si estas hubieran sido modificadas por una gaussiana. Permite obtener datos como la magnitud y la fase. Debido a su naturaleza, puede detectar estructuras periódicas en las señales, sin embargo, no es adecuada para analizar situaciones en las que los cambios ocurren en intervalos de tiempo muy cortos. Se utiliza comúnmente en el análisis de señales biológicas, específicamente en el análisis de EEG (electroencefalograma), el cual mide la actividad eléctrica del cerebro.
+Esta es una wavelet que se asemeja a señales sinusoidales, pero con una forma similar a una campana de Gauss. Permite obtener datos como la magnitud y la fase. Debido a su naturaleza, es capaz de detectar estructuras periódicas en las señales. Por esta razón, fue seleccionada para analizar la señal ECG.
 
 <div align="center">
  <img src="Morlet.png" alt="Morlet" width="300" height="200">
 </div>
-
-> Wavelet de Morlet  
-
-Esta es una wavelet que se asemeja a señales sinusoidales, pero como si estas hubieran sido modificadas por una gaussiana. Permite obtener datos como la magnitud y la fase. Debido a su naturaleza, puede detectar estructuras periódicas en las señales, sin embargo, no es adecuada para analizar situaciones en las que los cambios ocurren en intervalos de tiempo muy cortos. Se utiliza comúnmente en el análisis de señales biológicas, específicamente en el análisis de EEG (electroencefalograma), el cual mide la actividad eléctrica del cerebro.
-
-<div align="center">
- <img src="Morlet.png" alt="Morlet" width="300" height="200">
-</div>
-
-
-
 
 
 ## Objetivo

@@ -45,8 +45,21 @@ Por otro lado, el sistema parasimpático se activa en situaciones de relajación
 
 ### ¿Qué mide la HRV?
 
-La HRV (Heart Rate Variability), o variabilidad de la frecuencia cardíaca, es una medida de los cambios en el tiempo que ocurren entre los latidos del corazón. Anteriormente, se mencionó cómo el cuerpo se adapta a diferentes situaciones, lo que demuestra su adaptabilidad. Al analizar la HRV, es importante considerar las diferentes bandas de frecuencia, ya que cada una proporciona información sobre características específicas de la señal ECG.
+La HRV (Heart Rate Variability), o variabilidad de la frecuencia cardíaca, es una medida de los cambios en el tiempo que ocurren entre los latidos del corazón, a esto se le llama frecuencia. Anteriormente, se mencionó cómo el cuerpo se adapta a diferentes situaciones, lo que demuestra su adaptabilidad. Al analizar la HRV, es importante considerar las diferentes bandas de frecuencia, ya que cada una proporciona información sobre características específicas de la señal ECG.
 
+### Bandas de frecuencia que mide la HRV
+
+Habiendo mencionado anteriormente que las frecuencias medidas por la HRV son equivalentes a las 'velocidades' a las que ocurren las variaciones de los intervalos R-R, es importante aclarar que existen dos bandas de frecuencia principales: baja frecuencia y alta frecuencia.
+
+La banda de baja frecuencia se observa en un rango de 0.04 Hz a 0.15 Hz y se relaciona con cambios lentos en los intervalos R-R. Estos cambios lentos suelen estar asociados con la respuesta del cuerpo a situaciones de estrés o descanso, mientras busca alcanzar la homeostasis.
+
+Por otro lado, la banda de alta frecuencia se encuentra en un rango de 0.15 Hz a 0.4 Hz y está relacionada con cambios rápidos en los intervalos R-R. Principalmente, esta banda se ve influenciada por la respiración, reflejando la regulación que el cuerpo ejerce sobre ella.
+
+Entonces, ¿Cómo es posible medir el avance de dichas frecuencias?, para este objetivo se utiliza la herramienta de la Transformada Wavelet. 
+
+### Transformada Wavelet
+
+La transformada wavelet es una herramienta matemática que nos permite analizar cómo cambian las frecuencias a lo largo de una señal, descomponiéndola en 'escalas' de tiempo y frecuencia. Esto significa que la transformada puede proporcionarnos información sobre qué frecuencias están presentes y en qué momentos de la señal ocurren. Su definición matemática es la siguiente:
 
 
 ## Objetivo

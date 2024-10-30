@@ -137,7 +137,7 @@ Para la toma de datos, en primer lugar, se obtuvo el consentimiento informado de
 
 ## Procesamiento de la señal ECG 
 ---
-### Cargar las librerias que serán utilizadas para procesar la señal 
+### 1. Cargar las librerias que serán utilizadas para procesar la señal 
 
 Se utilizaron diversas librerias, tales como: 
 
@@ -154,10 +154,20 @@ import scipy.signal as signal
 import pywt
 import pandas as pd
 ```
-### Paso 2: Mezclar las señales, para poder utilizar ICA (Análisis de componentes independientes)
+### 2. Cargar los datos guardados en el archivo .txt
+
+El nombre del archivo de texto es 'juanitados'. Si se utiliza este código, se debe reemplazar por el nombre del archivo .txt correspondiente. Es importante destacar que los datos dentro del archivo están organizados en filas y columnas, por lo que es necesario especificar qué columnas corresponden al tiempo y al voltaje para construir la señal. La frecuencia de muestreo utilizada es de 100 Hz. Esta elección se basa en el teorema de Nyquist, que establece que la frecuencia de muestreo debe ser al menos el doble de la frecuencia máxima de la señal, la cual, según la literatura, oscila alrededor de 50 Hz.
+
+<div align="center">
+ <img src="NYQUIST.png" alt="Nyquist" width="300" height="200">
+</div>
 
 ```
-audio_mezclado = pim_recortado + pum_recortado + pam_recortado
+file_path = 'juanitados.txt' 
+datos = np.loadtxt(file_path, delimiter=',') 
+tiempo = datos[:, 0]  #Tiempo
+voltaje = datos[:, 1]  #Voltaje 
+fs = 100 #Frecuencia de muestreo (Hz)
 ```
 
 ### Paso 3: Aplicar el ICA

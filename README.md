@@ -159,7 +159,7 @@ import pandas as pd
 El nombre del archivo de texto es 'juanitados'. Si se utiliza este código, se debe reemplazar por el nombre del archivo .txt correspondiente. Es importante destacar que los datos dentro del archivo están organizados en filas y columnas, por lo que es necesario especificar qué columnas corresponden al tiempo y al voltaje para construir la señal. La frecuencia de muestreo utilizada es de 100 Hz. Esta elección se basa en el teorema de Nyquist, que establece que la frecuencia de muestreo debe ser al menos el doble de la frecuencia máxima de la señal, la cual, según la literatura, oscila alrededor de 50 Hz.
 
 <div align="center">
- <img src="NYQUIST.png" alt="Nyquist" width="150" height="100">
+ <img src="NYQUIST.png" alt="Nyquist" width="150" height="50">
 </div>
 
 ```

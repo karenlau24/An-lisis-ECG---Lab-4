@@ -125,7 +125,7 @@ Esta wavelet, que se asemeja a una señal sinusoidal pero con una forma similar 
 El objetivo de este trabajo fue identificar los picos R de una señal ECG para, posteriormente, analizar la fluctuación temporal de los intervalos R-R en una señal de cinco minutos de duración. Esta información es fundamental para realizar un análisis de la frecuencia cardíaca y detectar posibles anomalías asociadas a enfermedades o síndromes. Para identificar las frecuencias relacionadas con estas fluctuaciones, se empleó la transformada wavelet de Morlet, lo que permitió generar un espectograma y visualizar gráficamente la evolución temporal de las frecuencias. A continuación se muestra un diagrama de flujo superficial de los procedimientos que se llevarán a cabo: 
 
 <div align="center">
- <img src="Morlet.png" alt="Morlet" width="300" height="200">
+ <img src="Grafica Diagrama de Flujo Profesional Beige.png" alt="Flujo" width="800" height="800">
 </div>
 
 
